@@ -12,6 +12,9 @@ Alicia Woitte <aliciawoitte@gmail.com>
 
 */
 
+#ifndef TINY_ARDUINO_ENCODER_LIBRARY_H
+#define TINY_ARDUINO_ENCODER_LIBRARY_H
+
 #include <Arduino.h>
 
 static int isFwd;
@@ -77,3 +80,5 @@ int encoderLoop(struct Encoder *encoder)
 
     return change;
 }
+
+#endif // TINY_ARDUINO_ENCODER_LIBRARY_H
