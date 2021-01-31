@@ -14,9 +14,10 @@ static struct Encoder encoder;
 
 void setup()
 {
-  pinMode(LED_PIN, OUTPUT);
-  analogWrite(LED_PIN, encoderPosition);
   encoder = encoderSetup(ENCODER_PIN_A, ENCODER_PIN_B);
+
+  pinMode(LED_PIN, OUTPUT);
+  analogWrite(LED_PIN, encoderPosition / 4);
 }
 
 void loop()
@@ -32,6 +33,7 @@ void loop()
   {
     previousPosition = encoderPosition;
 
-    analogWrite(LED_PIN, encoderPosition / 4); // read at 4x resolution because the specific encoder I'm using changes state 4x between notches
+    // write at 1/4th resolution because the specific encoder I'm using changes state 4x between clicks
+    analogWrite(LED_PIN, encoderPosition / 4);
   }
 }
